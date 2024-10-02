@@ -13,20 +13,30 @@
     "@react-oauth/google": "^0.12.1",
     "@tabler/icons-react": "^3.17.0",
     "autoprefixer": "^10.4.20",
-    "axios": "^1.7.7",
+
     "bootstrap": "^5.3.3",
-    "clsx": "^2.1.1",
-    "framer-motion": "^11.5.4",
+
+
     "jquery": "^3.7.1",
     "pnpm": "^9.10.0",
     "postcss": "^8.4.45",
     "react": "^18.3.1",
-    "react-awesome-button": "^7.0.5",
+   
     "react-dom": "^18.3.1",
-    "react-google-login": "^5.2.2",
+
     "react-icons": "^5.3.0",
-    "tailwind-merge": "^2.5.2",
-    "tailwindcss": "^3.4.11"
+
+    "tailwindcss": "^3.4.11",
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-brands-svg-icons": "^6.6.0",
+    "@fortawesome/free-regular-svg-icons": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "axios": "^1.7.7",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.5.4",
+    "react-awesome-button": "^7.0.5",
+    "tailwind-merge": "^2.5.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
