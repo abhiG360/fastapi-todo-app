@@ -13,5 +13,5 @@ A simple ToDo application built with FastAPI that allows you to create, read, up
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/abhiG360/fastapi-todo-app.git
+  git clone https://github.com/abhiG360/fastapi-todo-app.git
    cd fastapi-todo-app
