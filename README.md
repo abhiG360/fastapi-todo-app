@@ -1,4 +1,4 @@
-# FastAPI ToDo App
+# Tadaa - REACT + FAST API TODO APP
 
 A simple ToDo application built with FastAPI that allows you to create, read, update, and delete ToDo items. Each item includes an ID, title, description, and completion status. The API ensures unique IDs for each item.
 
