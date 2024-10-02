@@ -1,0 +1,101 @@
+/* Define your color scheme */
+:root {
+  --carnation-pink: #ff99c8;
+  --lemon-chiffon: #fcf6bd;
+  --nyanza: #d0f4de;
+  --uranian-blue: #a9def9;
+  --mauve: #e4c1f9;
+  --moonstone: #64a6bd;
+  --powder-blue: #90a8c3;
+  --rose-quartz: #ada7c9;
+  --thistle: #d7b9d5;
+  --fairy-tale: #f4cae0;
+}
+
+/* Container styling */
+.todo-content-container {
+  padding-top: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #333;
+  padding-bottom: 40px;
+  
+}
+
+/* Header section */
+.table-head {
+  font-weight: bold;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--moonstone), var(--powder-blue));
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Body styling */
+.table-body {
+  background: linear-gradient(135deg, var(--rose-quartz), var(--fairy-tale));
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+/* Add hover effect to make it interactive */
+.table-body:hover {
+  transform: scale(1.02);
+  background-color: var(--mauve);
+}
+
+/* Completed tasks */
+.table-body.completed {
+  background: linear-gradient(135deg, var(--nyanza), var(--powder-blue));
+  color: #333;
+}
+
+.col {
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  color: white;
+  text-align: left;
+}
+
+/* Specific column styles */
+.col-6 {
+  flex-grow: 2;
+  /* background-color: var(--carnation-pink); */
+  word-wrap: break-word;
+  white-space: normal;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.col.title {
+  /* background-color: var(--rose-quartz); */
+}
+
+.col.status {
+  /* background-color: var(--thistle); */
+  color: var(--moonstone);
+  /* text-align: center; */
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Add some spacing */
+.row.ab-spacing {
+  margin-bottom: 20px;
+}
+
+/* Add gradient to the action buttons */

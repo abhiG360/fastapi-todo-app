@@ -1,0 +1,369 @@
+.create-todo-wrapper {
+  background: #000000;
+  margin-right: 20%;
+}
+
+/* Form Styles */
+.create-todo-form {
+  position: relative;
+  padding: 1.5rem;
+  overflow: hidden;
+  animation: northern-lights 15s ease infinite;
+  background-size: 400% 400%;
+  background-color: #1d2b33; /* Dark background to match inputs */
+  /* border: 4px solid transparent; */
+  /* border-image: linear-gradient(to right, #8e2de2, #4a00e0, #00c9ff, #92fe9d); */
+  border-radius: 10px;
+  border-image-slice: 1;
+}
+
+.form-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #8e2de2, #4a00e0, #00c9ff, #92fe9d);
+  opacity: 0.2;
+  animation: pulse 10s infinite;
+  border-radius: inherit;
+}
+
+.form-content {
+  position: relative;
+  z-index: 1;
+}
+
+.form-field {
+  margin-bottom: 1.5rem;
+  flex: 1; /* Allow fields to grow equally */
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap; /* Responsive */
+  gap: 1rem; /* Spacing between fields */
+}
+
+/* Text Input Fields */
+.form-input,
+.form-textarea {
+  width: 90%;
+  padding: 0.75rem; /* Slightly larger padding for a better feel */
+  background-color: #000101; /* Dark background for contrast */
+  color: #ffffff; /* Light yellow text for visibility */
+  border-radius: 0.375rem; /* Smooth rounded corners */
+  border: 2px solid #add899; /* Light green border */
+  outline: none;
+  transition: all 0.3s ease; /* Smooth transitions */
+  font-size: 1rem; /* Clear font size */
+  font-weight: bold;
+}
+
+/* Focused input field */
+.form-input:focus,
+.form-textarea:focus {
+  box-shadow: 0 0 10px rgba(173, 216, 153, 0.6),
+    0 0 20px rgba(173, 216, 153, 0.4); /* Greenish glow */
+  border-color: #7ed957; /* Slightly brighter green border on focus */
+  background-color: #344851; /* Slightly lighter background on focus */
+  color: #ffde95; /* Maintain text color for contrast */
+}
+
+.form-button-container {
+  position: relative; /* Make this container relative */
+}
+
+.form-button-container {
+  display: flex;
+  justify-content: center; /* Centers the button horizontally */
+  align-items: center;
+}
+
+.form-button {
+  width: 100%;
+  max-width: 350px; /* Set a max width for the button */
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  transition: all 0.2s;
+} /* Base button styles (enabled) */
+.form-button-enabled {
+  background-color: #4caf50; /* Bright green background */
+  background-image: linear-gradient(
+    135deg,
+    #4caf50,
+    #7ed957
+  ); /* Gradient for depth */
+  border: 4px solid #3a9a3c; /* Darker green border */
+  box-shadow: 0 0 15px rgba(76, 175, 80, 0.6), 0 0 30px rgba(76, 175, 80, 0.4);
+  color: #ffffff; /* White text for contrast */
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  width: 100%; /* Full width */
+  height: 60px; /* Match the disabled button height */
+  border-radius: 12px; /* Smooth button */
+  transition: all 0.3s ease; /* Smooth transition */
+  position: relative;
+}
+
+/* Enhanced button hover effect */
+.form-button-enabled:hover {
+  background-color: #45a049; /* Darker green for hover */
+  background-image: linear-gradient(
+    135deg,
+    #45a049,
+    #5cd65d
+  ); /* Deeper gradient */
+  box-shadow: 0 0 20px rgba(69, 160, 73, 0.6), 0 0 40px rgba(69, 160, 73, 0.4); /* Glowing effect */
+  transform: translateY(-2px); /* Lift effect */
+}
+
+/* Active state */
+.form-button-enabled:active {
+  transform: scale(0.98); /* Slightly scale down */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Softer shadow */
+}
+
+/* Spinner icon */
+.spinner-icon {
+  display: block;
+  margin: 0 auto;
+  animation: spin 1s linear infinite;
+}
+
+.form-button-disabled {
+  background-color: #555555;
+  background-image: linear-gradient(135deg, #444444, #222222);
+  border: 4px solid #2f2f2f;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 0, 0, 0.6);
+  color: #888888;
+  cursor: not-allowed;
+  text-transform: uppercase;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-radius: 12px; /* Rounded to give a smooth stone shape */
+  width: 100%; /* Full width */
+  height: 60px;
+  overflow: hidden;
+}
+
+/* Cracks on the stone button */
+.form-button-disabled::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../assets/crackPatternDark.png"); /* Crack pattern image */
+  background-size: cover; /* Full coverage */
+  background-repeat: no-repeat;
+  opacity: 1; /* Start fully opaque */
+  transition: opacity 0.5s ease-out; /* Smooth opacity transition */
+}
+
+/* Cracks fade away based on character count */
+.form-button-crack-level-0::before {
+  opacity: 1; /* Fully cracked */
+}
+
+.form-button-crack-level-1::before {
+  opacity: 0.85; /* Slightly faded */
+}
+
+.form-button-crack-level-2::before {
+  opacity: 0.6; /* More faded */
+}
+
+.form-button-crack-level-3::before {
+  opacity: 0.45; /* Slightly faded */
+}
+
+.form-button-crack-level-4::before {
+  opacity: 0.3; /* More faded */
+}
+
+.form-button-crack-level-5::before {
+  opacity: 0.15; /* Fully faded */
+}
+
+.form-button-crack-level-6::before {
+  opacity: 0; /* Slightly faded */
+}
+
+/* Spinner icon */
+.spinner-icon {
+  display: block;
+  margin: 0 auto;
+  animation: spin 1s linear infinite;
+}
+
+/* Success and Error Messages */
+.success-message,
+.error-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  text-align: center;
+  color: white;
+}
+
+.success-message {
+  background-color: #48bb78;
+  animation: fade-in-down 0.5s ease-out;
+}
+
+.error-message {
+  background-color: #f56565;
+  animation: fade-in-down 0.5s ease-out;
+}
+
+/* Keyframes */
+@keyframes northern-lights {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+/* Additional styles to maintain consistency */
+.form-button-success {
+  background-color: #48bb78; /* Base green */
+  background-image: linear-gradient(45deg, #48bb78, #38a169, #28a745);
+  border: 2px solid #38a169;
+  color: white;
+  box-shadow: 0 0 15px rgba(72, 187, 120, 0.6), 0 0 30px rgba(72, 187, 120, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+/* Success button hover effect */
+.form-button-success:hover {
+  background-image: linear-gradient(45deg, #28a745, #38a169, #48bb78);
+  box-shadow: 0 0 25px rgba(72, 187, 120, 0.8), 0 0 50px rgba(72, 187, 120, 0.5);
+  transform: translateY(-3px);
+  transition: all 0.3s ease;
+}
+
+/* Success button active effect */
+.form-button-success:active {
+  transform: scale(0.98);
+  box-shadow: none;
+}
+
+.form-input-rainbow {
+  display: inline-block;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  word-wrap: break-word;
+}
+
+.form-button-error {
+  background-color: #c12828; /* Base green */
+  background-image: linear-gradient(45deg, #8f1800, #a13838, #eb0909);
+  border: 2px solid #7b1111;
+  color: white;
+  box-shadow: 0 0 15px rgba(187, 89, 72, 0.6), 0 0 30px rgba(151, 34, 32, 0.849);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+/* Success button hover effect */
+.form-button-error:hover {
+  background-image: linear-gradient(45deg, #4b1004, #450000, #3a0606);
+  box-shadow: 0 0 15px rgba(187, 89, 72, 0.6), 0 0 30px rgba(151, 34, 32, 0.849);
+  transform: translateY(-3px);
+  transition: all 0.3s ease;
+}
+
+/* Success button active effect */
+.form-button-error:active {
+  transform: scale(0.98);
+  box-shadow: none;
+}
+
+/* Base styles for the editing button */
+.form-button-editing {
+  background-color: #7e5baf; /* Bright purple background */
+  background-image: linear-gradient(
+    135deg,
+    #7e5baf,
+    #a57ebc
+  ); /* Gradient for depth */
+  border: 4px solid #6a4e8d; /* Darker purple border */
+  box-shadow: 0 0 15px rgba(126, 91, 175, 0.6), 0 0 30px rgba(126, 91, 175, 0.4);
+  color: #ffffff; /* White text for contrast */
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  width: 100%; /* Full width */
+  height: 60px; /* Match the disabled button height */
+  border-radius: 12px; /* Smooth button */
+  transition: all 0.3s ease; /* Smooth transition */
+  position: relative;
+}
+
+/* Enhanced button hover effect */
+.form-button-editing:hover {
+  background-color: #6a4e8d; /* Darker purple for hover */
+  background-image: linear-gradient(
+    135deg,
+    #6a4e8d,
+    #a57ebc
+  ); /* Deeper gradient */
+  box-shadow: 0 0 20px rgba(106, 78, 141, 0.6), 0 0 40px rgba(106, 78, 141, 0.4); /* Glowing effect */
+  transform: translateY(-2px); /* Lift effect */
+}
+
+/* Active state */
+.form-button-editing:active {
+  transform: scale(0.98); /* Slightly scale down */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Softer shadow */
+}

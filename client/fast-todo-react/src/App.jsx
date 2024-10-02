@@ -1,35 +1,79 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import AppName from "./components/AppName";
+import CreateTodo from "./components/CreateTodo";
+import TodoContent from "./components/TodoContent";
+import axios from "axios";
+import "./App.css";
+import { BackgroundBeamsWithCollision } from "./components/ui/background-beams-with-collision";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [todos, setTodos] = useState([]);
+  const [editingTodo, setEditingTodo] = useState(null); // State to store the todo being edited
+
+  axios.defaults.withCredentials = true; // Ensures cookies are sent with all requests
+  // Fetch todos from the backend
+  const fetchTodos = async () => {
+    try {
+      const response = await axios.get("http://127.0.0.1:8000/todos/");
+      setTodos(response.data);
+    } catch (error) {
+      console.error("Error fetching todos:", error);
+    }
+  };
+
+  // Function to refresh todos
+  const refreshTodos = () => {
+    fetchTodos();
+  };
+
+  // Fetch todos on component mount
+  useEffect(() => {
+    fetchTodos();
+  }, []);
+
+  // Handle todo update
+  const handleTodoUpdate = async (updatedTodo) => {
+    try {
+      await axios.put(
+        `http://127.0.0.1:8000/todos/${updatedTodo.id}/`,
+        updatedTodo
+      );
+      setEditingTodo(null); // Reset editing state after update
+      refreshTodos(); // Refresh the todos after update
+    } catch (error) {
+      console.error("Error updating todo:", error);
+    }
+  };
+
+  // Handle todo deletion
+  const handleDeleteTodo = async (id) => {
+    try {
+      await axios.delete(`http://127.0.0.1:8000/todos/${id}/`);
+      refreshTodos(); // Refresh the todos after deletion
+    } catch (error) {
+      console.error("Error deleting todo:", error);
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app-alignment">
+      <BackgroundBeamsWithCollision />
+      <div className="main-container">
+        <AppName />
+        <CreateTodo
+          refreshTodos={refreshTodos}
+          editingTodo={editingTodo} // Pass the editing todo
+          onTodoUpdate={handleTodoUpdate} // Pass the update handler
+        />
+        <TodoContent
+          todos={todos}
+          onTodoUpdate={handleTodoUpdate}
+          onDeleteTodo={handleDeleteTodo}
+          onEditTodo={setEditingTodo} // Pass the function to set editing todo
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;

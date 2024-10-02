@@ -1,0 +1,72 @@
+/* Navbar styles */
+.navbar-container {
+  margin: 10px 0px;
+  color: aqua;
+  display: flex;
+  justify-content: space-between; /* Ensure space between left-aligned text and right-aligned buttons */
+  align-items: center;
+  background: rgb(0, 0, 0);
+  padding: 5px 10px;
+  height: 60px;
+  position: relative;
+  border-radius: 10px;
+}
+
+/* Center the ToDo heading */
+.text-style {
+  font-weight: bold;
+  font-size: 36px;
+  margin: 0;
+  text-align: center;
+  position: absolute; /* Keep heading centered on X-axis */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Reduce button size */
+.space-x-3 button {
+  font-size: 14px; /* Smaller button font */
+  /* padding: 0px 0px; Reduce padding/ */
+}
+
+/* Right-align the buttons */
+.space-x-3 {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  right: 10px; /* Position buttons on the right */
+}
+
+/* Ensure the typewriter text is left-aligned */
+.typewriterCustomized {
+  text-align: left;
+  font-size: small;
+  flex-grow: 1; /* Allows it to take available space and push buttons to the right */
+}
+
+:root {
+  --carnation-pink: #ff99c8;
+  --lemon-chiffon: #fcf6bd;
+  --nyanza: #d0f4de;
+  --uranian-blue: #a9def9;
+  --mauve: #e4c1f9;
+  --moonstone: #64a6bd;
+  --powder-blue: #90a8c3;
+  --rose-quartz: #ada7c9;
+  --thistle: #d7b9d5;
+  --fairy-tale: #f4cae0;
+}
+.typewriter-word1 {
+  color: var(--uranian-blue); /* Blue */
+}
+
+.typewriter-word2 {
+  color: var(--carnation-pink); /* Green */
+  /*  */
+}
+
+.typewriter-word3 {
+  color: var(--carnation-pink); /* Aqua */
+}
+
+
