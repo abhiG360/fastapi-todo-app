@@ -9,10 +9,4 @@ A simple ToDo application built with FastAPI that allows you to create, read, up
 - **Update:** Modify an existing ToDo item.
 - **Delete:** Remove a ToDo item by ID.
 
-## Getting Started
 
-1. Clone the repository:
-   ```bash
-  git clone https://github.com/abhiG360/fastapi-todo-app.git
-   cd fastapi-todo-app
-   ```
