@@ -15,3 +15,4 @@ A simple ToDo application built with FastAPI that allows you to create, read, up
    ```bash
   git clone https://github.com/abhiG360/fastapi-todo-app.git
    cd fastapi-todo-app
+   ```
