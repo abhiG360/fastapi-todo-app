@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 # CORS settings
-origins = ["http://localhost:5173, https://tadaa-abhimanyu.netlify.app"]
+origins = ["http://localhost:5173", "https://tadaa-abhimanyu.netlify.app"]
 
 app.add_middleware(
     CORSMiddleware,
