@@ -13,7 +13,7 @@ function AppName() {
       className: "typewriter-word1",
     },
     {
-      text: "Welcome",
+      text: "Welcome To",
       className: "typewriter-word2",
     },
     {
