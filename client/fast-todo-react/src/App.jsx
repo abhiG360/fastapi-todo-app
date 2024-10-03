@@ -14,7 +14,9 @@ function App() {
   // Fetch todos from the backend
   const fetchTodos = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:8000/todos/");
+      const response = await axios.get(
+        "https://tadaa-react-fastapi.onrender.com/todos/"
+      );
       setTodos(response.data);
     } catch (error) {
       console.error("Error fetching todos:", error);
@@ -35,7 +37,7 @@ function App() {
   const handleTodoUpdate = async (updatedTodo) => {
     try {
       await axios.put(
-        `http://127.0.0.1:8000/todos/${updatedTodo.id}/`,
+        `https://tadaa-react-fastapi.onrender.com/todos/${updatedTodo.id}/`,
         updatedTodo
       );
       setEditingTodo(null); // Reset editing state after update
@@ -48,7 +50,9 @@ function App() {
   // Handle todo deletion
   const handleDeleteTodo = async (id) => {
     try {
-      await axios.delete(`http://127.0.0.1:8000/todos/${id}/`);
+      await axios.delete(
+        `https://tadaa-react-fastapi.onrender.com/todos/${id}/`
+      );
       refreshTodos(); // Refresh the todos after deletion
     } catch (error) {
       console.error("Error deleting todo:", error);

@@ -48,7 +48,7 @@ function CreateTodo({ refreshTodos, editingTodo, onTodoUpdate }) {
     e.preventDefault();
     setIsLoading(true);
     setError(null);
-  
+
     try {
       if (editingTodo) {
         // Update existing todo
@@ -56,12 +56,12 @@ function CreateTodo({ refreshTodos, editingTodo, onTodoUpdate }) {
         await onTodoUpdate(updatedTodo);
       } else {
         // Create new todo
-        await axios.post("http://127.0.0.1:8000/todos/", {
+        await axios.post("https://tadaa-react-fastapi.onrender.com/todos/", {
           title,
           description,
         });
       }
-  
+
       refreshTodos(); // Refresh todos
       setTitle("");
       setDescription("");
@@ -74,7 +74,7 @@ function CreateTodo({ refreshTodos, editingTodo, onTodoUpdate }) {
       setIsLoading(false);
     }
   };
-  
+
   return (
     <div className="create-todo-wrapper">
       <form onSubmit={handleSubmit} className="create-todo-form">
